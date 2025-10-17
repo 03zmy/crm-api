@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
- * @Author: zmy
+ * @Author: 夏企博
  * @Date: 2025/10/12
  * @Version: 1.0
  */

@@ -15,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,6 +40,10 @@ public class Department {
     @TableField("name")
     private String name;
 
+    @ApiModelProperty("部门层级")
+    @TableField("level")
+    private Integer level;
+
     @ApiModelProperty("父级id")
     @TableField("parent_id")
     private Integer parentId;
@@ -49,15 +52,14 @@ public class Department {
     @TableField("parent_ids")
     private String parentIds;
 
-    @ApiModelProperty("部门层级关系")
-    @TableField("level")
-    private Integer level;
-
     @ApiModelProperty("逻辑删除")
     @TableField(value = "delete_flag", fill = FieldFill.INSERT)
     @TableLogic
     @JsonIgnore
-    private Byte deleteFlag;
+    private Integer deleteFlag = 0; // 设置默认值，0表示未删除
+
+    // getter/setter方法...
+
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)
@@ -69,7 +71,6 @@ public class Department {
     @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN)
     private LocalDateTime updateTime;
 
-    @Schema(description = "子部门")
     @TableField(exist = false)
     private List<Department> children = new ArrayList<>();
 }

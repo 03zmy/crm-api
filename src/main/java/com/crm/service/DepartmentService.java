@@ -17,6 +17,14 @@ import java.util.List;
  * @since 2025-10-12
  */
 public interface DepartmentService extends IService<Department> {
+
+    /**
+     * 保存或编辑部门
+     * @param department
+     */
+    void saveOrEditDepartment(Department department);
+
+
     /**
      * 部门分页
      * @param query
@@ -30,12 +38,6 @@ public interface DepartmentService extends IService<Department> {
      * @return
      */
     List<Department> getList();
-
-    /**
-     * 保存或编辑部门
-     * @param department
-     */
-    void saveOrEditDepartment(Department department);
 
     /**
      * 删除部门
