@@ -90,6 +90,17 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
         customer.setOwnerId(null);
         baseMapper.updateById(customer);
     }
+    @Override
+    public void publicPoolToPrivate(IdQuery idQuery){
+        Customer customer = baseMapper.selectById(idQuery.getId());
+        if (customer == null) {
+            throw new ServerException("客户不存在,无法转入公海");
+        }
+        customer.setIsPublic(0);
+        Integer ownerId = SecurityUser.getManagerId();
+        customer.setOwnerId(ownerId);
+        baseMapper.updateById(customer);
+    }
     private MPJLambdaWrapper<Customer> selection(CustomerQuery query) {
         MPJLambdaWrapper<Customer> wrapper = new MPJLambdaWrapper<>();
         wrapper.selectAll(Customer.class)
