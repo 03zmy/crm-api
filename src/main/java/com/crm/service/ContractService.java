@@ -30,9 +30,9 @@ public interface ContractService extends IService<Contract> {
     /**
      * 保存或更新合同
      *
-     * @param contractVO
+     * @param customerVO
      */
-    void saveOrUpdate(ContractVO contractVO);
+    void saveOrUpdate(ContractVO customerVO);
 
 
 

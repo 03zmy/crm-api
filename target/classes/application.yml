@@ -65,13 +65,3 @@ auth:
     - /doc.html
     - /                     # 根路径
 
-aliyun:
-  oss:
-    # oss对外服务的访问域名
-    endpoint: oss-cn-hangzhou.aliyuncs.com
-    # 访问身份验证中用到用户标识
-    accessKeyId: LTAI5tCSXUFCGcR84tX247ne
-    # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
-    accessKeySecret: bTb0fphgcjD7wyg2yK91SGOlJqzSzX
-    # oss的存储空间
-    bucketName: zmy-oss123

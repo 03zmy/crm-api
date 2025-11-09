@@ -10,13 +10,13 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-11-02T13:45:51+0800",
+    date = "2025-11-07T20:08:33+0800",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.16 (Eclipse Adoptium)"
 )
 public class ContractConvertImpl implements ContractConvert {
 
     @Override
-    public Contract convert(ContractVO contractVO) {
+    public Contract toContract(ContractVO contractVO) {
         if ( contractVO == null ) {
             return null;
         }
@@ -44,32 +44,32 @@ public class ContractConvertImpl implements ContractConvert {
     }
 
     @Override
-    public ProductVO convertToProductVO(ContractProduct contractProduct) {
-        if ( contractProduct == null ) {
+    public ProductVO toProductVO(ContractProduct product) {
+        if ( product == null ) {
             return null;
         }
 
         ProductVO productVO = new ProductVO();
 
-        productVO.setId( contractProduct.getId() );
-        productVO.setPId( contractProduct.getPId() );
-        productVO.setPName( contractProduct.getPName() );
-        productVO.setTotalPrice( contractProduct.getTotalPrice() );
-        productVO.setCount( contractProduct.getCount() );
-        productVO.setPrice( contractProduct.getPrice() );
+        productVO.setId( product.getId() );
+        productVO.setPId( product.getPId() );
+        productVO.setPName( product.getPName() );
+        productVO.setTotalPrice( product.getTotalPrice() );
+        productVO.setCount( product.getCount() );
+        productVO.setPrice( product.getPrice() );
 
         return productVO;
     }
 
     @Override
-    public List<ProductVO> convertToProductVOList(List<ContractProduct> contractProductList) {
-        if ( contractProductList == null ) {
+    public List<ProductVO> toProductVOList(List<ContractProduct> productList) {
+        if ( productList == null ) {
             return null;
         }
 
-        List<ProductVO> list = new ArrayList<ProductVO>( contractProductList.size() );
-        for ( ContractProduct contractProduct : contractProductList ) {
-            list.add( convertToProductVO( contractProduct ) );
+        List<ProductVO> list = new ArrayList<ProductVO>( productList.size() );
+        for ( ContractProduct contractProduct : productList ) {
+            list.add( toProductVO( contractProduct ) );
         }
 
         return list;
