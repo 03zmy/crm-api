@@ -4,7 +4,9 @@ import com.crm.common.result.PageResult;
 import com.crm.entity.Contract;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.crm.entity.ContractProduct;
+import com.crm.query.ApprovalQuery;
 import com.crm.query.ContractQuery;
+import com.crm.query.IdQuery;
 import com.crm.vo.ContractVO;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,17 @@ public interface ContractService extends IService<Contract> {
      */
     void saveOrUpdate(ContractVO customerVO);
 
+    /**
+     * 开始审核合同
+     * @param idQuery
+     */
+    void startApproval(IdQuery idQuery);
+
+    /**
+     * 审核合同
+     * @param query
+     */
+    void approvalContract(ApprovalQuery query);
 
 
 
